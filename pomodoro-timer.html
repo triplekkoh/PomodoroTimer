@@ -23,25 +23,20 @@
         <button id="pomodoroButton" data-time-span="00:25:00" class="btn btn-default">Pomodoro</button>
         <button id="longButton" data-time-span="00:15:00" class="btn btn-default">Long Break</button>
          <button id="shortButton" data-time-span="00:05:00" class="btn btn-default">Short Break</button>
-          <button id="customtime" data-time-span="00:00:00" class="btn btn-default">Custom Time</button>
       </span>
     </h2>
-    <div class="panel panel-default" style="margin-bottom: 20px;">
+    <div class="panel panel-default" style="margin-bottom: 10px;">
       <div class="panel-body text-center">
         <div class="timer-time timer-container">
-          <div  class="timer-time-set timer-box">
+          <div class="timer-time-set timer-box" id="currentTime">
             <span id="hoursValue">00</span>
             <span>:</span>
             <span id="minutesValue">00</span>
             <span>:</span>
             <span id="secondsValue">00</span>
-          </div>            
+          </div>
         </div>
-          <div id="customdiv" style="display:none">
-              <input id="number" type="number" placeholder="Please enter your time in minutes:" style="width:230px">
-          </div>  
         <div>
-            <br>
           <button id="restartButton" class="btn btn-danger btn-lg">
             <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
           </button>
@@ -59,6 +54,7 @@
   <script src="js/vendor/jquery-1.12.0.min.js"></script>
   <script src="js/vendor/bootstrap.min.js"></script>
   <script src="js/pomodoro-timer.js"></script>
+
 </body>
 
 </html>
