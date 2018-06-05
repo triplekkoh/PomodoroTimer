@@ -7,12 +7,24 @@ $(document).ready(function () {
 
     $('button[data-time-span]').each(function () {
         $(this).click(onSetTimer);
+        $(this).click(show);
     });
-
+    
+    $('#customtime').click(hide);
     $('#restartButton').click(onResetTimer);
     $('#startButton').click(onStartTimer);
     $('#stopButton').click(onStopTimer);
 });
+
+
+function hide() {
+    document.getElementById("customdiv").style.display = 'block';
+}
+
+function show() {
+    document.getElementById("customdiv").style.display = 'none';
+
+}
 
 function initializeTimer() {
     resetButtons();
