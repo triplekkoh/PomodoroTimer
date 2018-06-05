@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Timer",
-  "description": "This is a simple pomodoro timer.",
+  "description": "The only pomodoro timer that you need.",
   "version": "0.1",
 
   "browser_action": {
