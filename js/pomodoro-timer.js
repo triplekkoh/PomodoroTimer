@@ -5,7 +5,9 @@ var tSeconds = 0;
 $(document).ready(function () {
     initializeTimer();
 
+
     $('button[data-time-span]').each(function () {
+        //$('#customtime').data('time-span', '00:09:00');
         $(this).click(onSetTimer);
         $(this).click(show);
     });
@@ -13,18 +15,48 @@ $(document).ready(function () {
     $('#customtime').click(hide);
     $('#restartButton').click(onResetTimer);
     $('#startButton').click(onStartTimer);
+    $('#startButton2').click(function () {        
+        var min = $('#number').val();
+        $('#customtime').data('time-span', '00:' + min + ':00');
+        onSetTimer2();
+        onStartTimer();
+    });
     $('#stopButton').click(onStopTimer);
 });
 
 
 function hide() {
     document.getElementById("customdiv").style.display = 'block';
+    document.getElementById("startButton2").style.display = 'inline';
+    document.getElementById("startButton").style.display = 'none';
+    
 }
 
 function show() {
     document.getElementById("customdiv").style.display = 'none';
+    document.getElementById("startButton2").style.display = 'none';
+    document.getElementById("startButton").style.display = 'inline';
 
 }
+
+
+function onSetTimer2(e) {
+    var timeSpan = $('#customtime').data("time-span");
+
+    chrome.storage.sync.set({
+        "last-time-span": timeSpan,
+    }, function () {
+        //  A data saved callback
+    });
+
+    setTimeSpan(timeSpan);
+
+    resetButtons();
+    $(this).addClass('btn-danger');
+
+    onResetTimer();
+}
+
 
 function initializeTimer() {
     resetButtons();
